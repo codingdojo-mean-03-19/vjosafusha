@@ -1,1 +1,36 @@
-// 1 hour
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>Hunting GitHub</title>
+    <script>
+        $(document).ready(function () {
+            var name;
+            $('#btn').click(function () {
+                $.get("https://api.github.com/users/vjosafusha", function (data) {
+                    name = data.login;
+                    console.log("Name", name);
+                    document.getElementById('name').innerHTML = name;    // Predict the output!
+                });
+            });
+        });       
+    </script>
+</head>
+
+<body>
+    <div class="jumbotron text-center">
+        <h1>GitHub Hunting</h1>
+        <button id='btn' type="button" class="btn btn-info">CLICK</button>
+        <hr>
+        <h4 id='name'></h4>
+    </div>
+</body>
+
+</html>
