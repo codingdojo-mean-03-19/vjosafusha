@@ -10,6 +10,9 @@
     <script type="text/javascript" src='http://code.jquery.com/jquery-1.10.2.min.js'></script>
     <title>Game of Thrones</title>
     <style>
+        body{
+            background-color: #333134
+        }
         img {
             display: inline-block;
             height: auto;
@@ -22,6 +25,11 @@
 
         .images {
             max-width: 98%;
+            margin:0 auto;
+            
+        }
+        img:hover{
+            box-shadow: 0 8px 16px 0 rgba(196, 195, 195, 0.356);
         }
 
         .card {
@@ -33,8 +41,9 @@
         }
 
         .card:hover {
-            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 16px 0 rgba(189, 77, 77, 0.342);
         }
+
     </style>
     <script>
         $(document).ready(function () {
@@ -87,12 +96,12 @@
     <!-- <h1>Click a Picture</h1> -->
     <div class="images">
         <img src="assets/baratheon.png" alt="baratheon" id='baratheon'>
-        <img src="assets/lannister.jpg" alt="lannister" id='lannister'>
+        <img src="assets/lannister1.jpg" alt="lannister" id='lannister'>
         <img src="assets/stark.jpg" alt="stark" id="stark">
         <img src="assets/targaryen.jpg" alt="targaryen" id="targaryen">
     </div>
 
-    <div class="card bg-light text-dark">
+    <div class="card bg-light text-dark" style="margin-top: 30px;">
         <div class="card-body">
             <h5 class="card-title">Name:</h5>
             <p id='name'></p>
