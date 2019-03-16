@@ -22,7 +22,7 @@
 </head>
 
 <body>
-    Coding is <div id="magic"></div>
+    Coding is <div id="magic"></div>&nbsp; <!-- Ignore spaces -->
     <script>
         var words = ["a lot of fun", "about not giving up", "challenging and empowering", "creative expression", "what I learned at CodingDojo!"],
             el = document.getElementById('magic'),
@@ -30,10 +30,6 @@
             character_counter = 0;
         function updateText() {
             var character = words[word_counter][character_counter++];
-            
-            if (character === ''){
-                character = "$shdfd;"
-            }
             el.innerHTML = el.innerHTML + character;
             if (character_counter == words[word_counter].length+1) {
                 word_counter++; 	//choose a different word
