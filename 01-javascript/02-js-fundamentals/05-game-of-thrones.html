@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <script type="text/javascript" src='http://code.jquery.com/jquery-1.10.2.min.js'></script>
+    <title>Game of Thrones</title>
+    <style>
+        img {
+            display: inline-block;
+            height: auto;
+            width: 22%;
+            margin: 1%;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+            border-radius: 5px;
+        }
+
+        .images {
+            max-width: 98%;
+        }
+
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+            width: 40%;
+            border-radius: 5px;
+            margin:0 auto;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            $('.card').hide();
+            $('#stark').click(function () {
+                $('.card').show();
+                $.get('https://anapioficeandfire.com/api/houses/362', house);
+                function house(data) {
+                    console.log(data);
+                    document.getElementById('name').innerHTML = data.name;
+                    document.getElementById('words').innerHTML = data.words;
+                    document.getElementById('titles').innerHTML = data.titles;
+                }
+            });
+            $('#baratheon').click(function () {
+                $('.card').show();
+                $.get('https://anapioficeandfire.com/api/houses/17', house);
+                function house(data) {
+                    console.log(data);
+                    document.getElementById('name').innerHTML = data.name;
+                    document.getElementById('words').innerHTML = data.words;
+                    document.getElementById('titles').innerHTML = data.titles;
+                }
+            });
+            $('#lannister').click(function () {
+                $('.card').show();
+                $.get('https://anapioficeandfire.com/api/houses/229', house);
+                function house(data) {
+                    console.log(data);
+                    document.getElementById('name').innerHTML = data.name;
+                    document.getElementById('words').innerHTML = data.words;
+                    document.getElementById('titles').innerHTML = data.titles;
+                }
+            });
+            $('#targaryen').click(function () {
+                $('.card').show();
+                $.get('https://anapioficeandfire.com/api/houses/378', house);
+                function house(data) {
+                    console.log(data);
+                    document.getElementById('name').innerHTML = data.name;
+                    document.getElementById('words').innerHTML = data.words;
+                    document.getElementById('titles').innerHTML = data.titles;
+                }
+            });
+        })
+    </script>
+</head>
+
+<body>
+    <!-- <h1>Click a Picture</h1> -->
+    <div class="images">
+        <img src="assets/baratheon.png" alt="baratheon" id='baratheon'>
+        <img src="assets/lannister.jpg" alt="lannister" id='lannister'>
+        <img src="assets/stark.jpg" alt="stark" id="stark">
+        <img src="assets/targaryen.jpg" alt="targaryen" id="targaryen">
+    </div>
+
+    <div class="card bg-light text-dark">
+        <div class="card-body">
+            <h5 class="card-title">Name:</h5>
+            <p id='name'></p>
+            <h5 class="card-text">Words:</h5>
+            <p id='words'></p>
+            <h5 class="card-text">Title:</h5>
+            <p id='titles'></p>
+        </div>
+    </div>
+</body>
+
+</html>
