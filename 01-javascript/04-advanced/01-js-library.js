@@ -24,19 +24,20 @@ var _ = {
     },
     filter: function (array, callback) {
         var filter = [];
-        for (let i = 0; i < array.length; i++){
-            if(callback(array[i]))
+        for (let i = 0; i < array.length; i++) {
+            if (callback(array[i]))
                 filter.push(array[i]);
-            
+
         }
         return filter;
     },
     reject: function (array, callback) {
         var reject = [];
-        for (let i = 0; i < array.length; i++){
-            if(!callback[array[i]]){
-                reject.push[array[i]];
+        for (let i = 0; i < array.length; i++) {
+            if (callback(array[i])) { 
+                reject.push(array[i]); 
             }
+
         }
         return reject;;
     }
@@ -56,3 +57,6 @@ var reduceMethod = _.reduce([1, 2, 3, 4, 5, 6], function (memo, num) {
     return num + memo;
 }, 0);
 console.log(reduceMethod);
+
+var rejectMethod = _.reject([1, 2, 3, 4, 5, 6], function (num) { return num > 2 });
+console.log(rejectMethod)
