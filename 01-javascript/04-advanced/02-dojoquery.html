@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dojo Query</title>
+    <style>
+        body {
+            font-family: monospace;
+            color: black;
+            font-size: 50px;
+        }
+
+        #click {
+            height: 300px;
+            width: 300px;
+            background-color: rgb(92, 98, 179);
+        }
+    </style>
+</head>
+
+<body>
+    Click or Hover
+    <div id="click"></div>
+</body>
+<script type="text/javascript">
+    (function (global) {
+        function dojo(element) {
+            event = {
+                click: function (handler) {
+                    element.addEventListener('click', handler);
+                    return event;
+                },
+                hover: function (onHoverHandler, offHoverHandler) {
+                    element.addEventListener('mouseover', onHoverHandler);
+                    element.addEventListener('mouseout', offHoverHandler);
+                    return event;
+                }
+            }
+            return event;
+        }
+        function $Dojo(id) {
+            const element = document.getElementById(id);
+            return dojo(element);
+        }
+        global.$Dojo = $Dojo;
+
+    })(window);
+
+    $Dojo("click").click(function () {
+        console.log("I was clicked by Ninja!")
+    }).hover(function () {
+        console.log("I was hovered")
+    }, function () {
+        console.log("i was hovered off")
+    })
+</script>
+
+</html>
