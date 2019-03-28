@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Details</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class='container'>
+        <div class='p-3 mb-2 bg-warning text-dark">.bg-warning text-center'>
+            <h1><%= cat.name %></h1>
+        
+            <img src="<%= cat.img %>" class="rounded-circle" alt="<%= cat.name %> width="304" height="236">
+        </div>
+        <div class="text-muted" >
+            <h4>Favorite Food: <%= cat.favorite_food %> </h4>
+            <h4>Age: <%= cat.age %></h4>
+            <h4>Sleeping Spot: <%= cat.sleeping_spots %></h4>
+        </div>
+    </div>
+</body>
+</html>
