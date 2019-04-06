@@ -14,6 +14,10 @@ app.use(
   })
 );
 
+app.listen(8000, function() {
+    console.log('listening on port 8000');
+  });
+  
 app.get('/', function(req, res) {
   if (!req.session.counter) {
     req.session.counter = 1;
@@ -35,6 +39,4 @@ app.get('/reset', function(req, res) {
   res.redirect('/');
 });
 
-app.listen(8000, function() {
-  console.log('listening on port 8000');
-});
+
