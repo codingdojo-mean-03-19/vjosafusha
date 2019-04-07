@@ -6,14 +6,16 @@ var bodyParser = require("body-parser");
 var session = require("express-session");
 var flash = require("express-flash");
 var bcrypt = require("bcrypt");
+
+const port = 8000;
+
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
-app.use(express.static(path.join(__dirname, "static")));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(flash());
 app.use(
   session({
-    secret: "keyboardkitteh",
+    secret: "keyboassshsjasdhardkitteh",
     resave: false,
     saveUninitialized: true,
     cookie: { maxAge: 60000 }
@@ -51,16 +53,16 @@ mongoose.Promise = global.Promise;
 var User = mongoose.model("User");
 
 app.get("/", function(req, res) {
-  if (req.session.userid) {
-    return res.redirect("/secrets");
-  }
+//   if (req.session.userid) {
+//     return res.redirect("/secrets");
+//   }
   res.render("index");
 });
 
 app.post("/", function(req, res) {
-  console.log("POST DATA", JSON.stringify(req.body));
-  var salt = bcrypt.genSalt(10);
-  var hash = bcrypt.hash(req.body.password, salt);
+  console.log("POST DATA", req.body);
+  var salt = bcrypt.genSaltSync(10);
+  var hash = bcrypt.hashSync(req.body.password, salt);
 
   var user = new User({
     first_name: req.body.first_name,
@@ -93,7 +95,7 @@ app.post("/session", function(req, res) {
 
     if (user) {
       console.log("There is a user", user.password);
-      var unhash = bcrypt.compare(req.body.password, user.password);
+      var unhash = bcrypt.compareSync(req.body.password, user.password);
       if (unhash) {
         req.session.userid = user._id;
         return res.redirect("/secrets");
@@ -115,6 +117,5 @@ app.get("/secrets", function(req, res) {
   }
 });
 
-app.listen(8000, function() {
-  console.log("Hello? I'm listening! Do something!");
-});
+app.listen(port, () => console.log(`Server listening on port ${port}!`));
+
