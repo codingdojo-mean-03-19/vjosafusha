@@ -22,24 +22,27 @@
           <th>Atributes</th>
         </tr>
       </thead>
-      <% for (var x in arr) { %>
+
+      <% sloths.forEach(function(sloth) {%>
       <tbody>
         <tr>
-          <td><%= arr[x].name %></td>
-          <td><%= arr[x].desc %></td>
-          <td><%= arr[x].age %></td>
+          <td><%= sloth.name %></td>
+          <td><%= sloth.desc %></td>
+          <td><%= sloth.age %></td>
           <td>
-            <a href="/show/<%= arr[x]._id %>" class="btn btn-primary ">Show</a>
-            <a href="/sloth/edit/<%= arr[x]._id %>" class="btn btn-primary "
+            <a href="/mongooses/<%= sloth._id %>" class="btn btn-primary "
+              >Show</a
+            >
+            <a href="/mongooses/edit/<%= sloth._id%>" class="btn btn-primary "
               >Edit</a
             >
-            <a href="/delete/<%= arr[x]._id %>" class="btn btn-primary "
+            <a href="/delete/<%= sloth._id %>" class="btn btn-primary "
               >Delete</a
             >
           </td>
         </tr>
       </tbody>
-      <% } %>
+      <% }); %>
     </table>
 
     <a href="/new" class="btn btn-primary col-sm-3 text-center"

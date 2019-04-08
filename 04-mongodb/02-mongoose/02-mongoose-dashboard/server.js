@@ -38,8 +38,8 @@ mongoose.model('Sloth', SlothSchema);
 const Sloth = mongoose.model('Sloth');
 
 app.get('/', function(req, res) {
-  arr = Sloth.find({}, function(err, sloths) {
-    res.render('index', { arr: sloths });
+  Sloth.find({}, function(err, sloths) {
+    res.render('index', { sloths });
   });
 });
 
@@ -57,36 +57,35 @@ app.post('/add', function(req, res) {
   });
 });
 
-app.get('/show/:id', function(req, res) {
+app.get('/mongooses/:id', function(req, res) {
   var id = req.params.id;
-  Sloth.find({ _id: id }, function(err, sloth) {
+  one = Sloth.findOne({ _id: id }, function(err, sloth) {
     if (err) {
       console.log(err);
     }
-    res.render('show_one', { sloth });
+    res.render('show_one', { one: sloth });
   });
 });
 
-app.get('/edit/:id', function(req, res) {
+app.get('/mongooses/edit/:id', function(req, res) {
   var id = req.params.id;
-  sloth = Sloth.find({ _id: id }, function(err) {
+  one = Sloth.findOne({ _id: id }, function(err, sloth) {
     if (err) {
       console.log(err);
     }
-    res.render('edit', { sloth });
+    res.render('edit', { one: sloth });
   });
 });
 
-app.post('/edit', function(req, res) {
+app.post('/mongooses/:id', function(req, res) {
   var id = req.params.id;
-  Sloth.update({ _id: id }, function(err, sloth) {
+  Sloth.update({ _id: id }, function(err) {
     if (err) {
       console.log(err);
     }
-    res.redirect('/');
   });
+  res.redirect("/")
 });
-
 
 app.get('/delete/:id', function(req, res) {
   var id = req.params.id;
