@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      rel="stylesheet"
+      id="bootstrap-css"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Editing <%=sloth.name%></h1>
+      <form action="/add/" method="POST">
+        <div class="form-group">
+          <label for="name" class="col-sm-3">Name:</label>
+          <div class="col-sm-9">
+            <input
+              type="text"
+              value="<%= sloth.name %>"
+              id="name"
+              placeholder="Name"
+              class="form-control"
+              name="name"
+            />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="desc" class="col-sm-3">Description: </label>
+          <div class="col-sm-9">
+            <input value="<%= sloth.desc %>"" type="text" id="desc"
+            placeholder="Description" class="form-control" name="desc" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="age" class="col-sm-3">Age: </label>
+          <div class="col-sm-9">
+            <input
+              value="<%= sloth.age %>"
+              type="number"
+              id="age"
+              placeholder="Age"
+              class="form-control"
+              name="age"
+            />
+          </div>
+        </div>
+        <a href="/sloth/<%= sloth._id %>">SAVE</a>
+      </form>
+    </div>
+  </body>
+</html>
