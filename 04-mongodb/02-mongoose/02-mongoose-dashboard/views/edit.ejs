@@ -13,14 +13,14 @@
   </head>
   <body>
     <div class="container">
-      <h1>Editing <%=one.name%></h1>
-      <form action="/mongooses/:id" method="POST">
+      <h1>Editing <%=sloth.name%></h1>
+      <form action="/mongooses/<%=sloth.id%>" method="POST">
         <div class="form-group">
           <label for="name" class="col-sm-3">Name:</label>
           <div class="col-sm-9">
             <input
               type="text"
-              value="<%= one.name %>"
+              value="<%= sloth.name %>"
               id="name"
               placeholder="Name"
               class="form-control"
@@ -31,7 +31,7 @@
         <div class="form-group">
           <label for="desc" class="col-sm-3">Description: </label>
           <div class="col-sm-9">
-            <input value="<%= one.desc %>"" type="text" id="desc"
+            <input value="<%= sloth.desc %>"" type="text" id="desc"
             placeholder="Description" class="form-control" name="desc" />
           </div>
         </div>
@@ -39,7 +39,7 @@
           <label for="age" class="col-sm-3">Age: </label>
           <div class="col-sm-9">
             <input
-              value="<%= one.age %>"
+              value="<%= sloth.age %>"
               type="number"
               id="age"
               placeholder="Age"

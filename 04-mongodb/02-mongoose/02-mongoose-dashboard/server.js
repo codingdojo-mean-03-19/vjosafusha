@@ -38,9 +38,9 @@ mongoose.model('Sloth', SlothSchema);
 const Sloth = mongoose.model('Sloth');
 
 app.get('/', function(req, res) {
-  Sloth.find({}, function(err, sloths) {
-    res.render('index', { sloths });
-  });
+  Sloth.find({})
+    .then(sloths => res.render('index', { sloths: sloths }))
+    .catch(console.log);
 });
 
 app.get('/new', function(req, res) {
@@ -48,8 +48,8 @@ app.get('/new', function(req, res) {
 });
 
 app.post('/add', function(req, res) {
-  console.log(req.body);
-  Sloth.create(req.body, function(err) {
+  var sloth = new Sloth(req.body);
+  sloth.save(function(err) {
     if (err) {
       console.log(err);
     }
@@ -58,41 +58,39 @@ app.post('/add', function(req, res) {
 });
 
 app.get('/mongooses/:id', function(req, res) {
-  var id = req.params.id;
-  one = Sloth.findOne({ _id: id }, function(err, sloth) {
+  Sloth.find({ _id: req.params.id }, function(err, sloth) {
     if (err) {
       console.log(err);
     }
-    res.render('show_one', { one: sloth });
+    res.render('show_one', { sloth: sloth[0] });
   });
 });
 
 app.get('/mongooses/edit/:id', function(req, res) {
-  var id = req.params.id;
-  one = Sloth.findOne({ _id: id }, function(err, sloth) {
-    if (err) {
-      console.log(err);
-    }
-    res.render('edit', { one: sloth });
-  });
+  Sloth.find({ _id: req.params.id })
+    .then(sloth => {
+      console.log(sloth);
+      res.render('edit', { sloth: sloth[0] });
+    })
+    .catch(console.log);
 });
 
 app.post('/mongooses/:id', function(req, res) {
-  var id = req.params.id;
-  Sloth.update({ _id: id }, function(err) {
-    if (err) {
-      console.log(err);
-    }
-  });
-  res.redirect("/")
+  console.log('body', req.body);
+  Sloth.update({ _id: req.params.id }, req.body)
+    .then(sloth => {
+      console.log(sloth);
+      res.redirect('/');
+    })
+    .catch(console.log);
 });
 
 app.get('/delete/:id', function(req, res) {
   var id = req.params.id;
-  Sloth.remove({ _id: id }, function(err, sloth) {
-    if (err) {
-      console.log(err);
-    }
-    res.redirect('/');
-  });
+  Sloth.remove({ _id: id })
+    .then(sloth => {
+      console.log(sloth);
+      res.redirect('/');
+    })
+    .catch(console.log);
 });
