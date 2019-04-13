@@ -60,7 +60,6 @@ app.get("/", function(req, res) {
 });
 
 app.post("/", function(req, res) {
-  console.log("POST DATA", req.body);
   var salt = bcrypt.genSaltSync(10);
   var hash = bcrypt.hashSync(req.body.password, salt);
 
