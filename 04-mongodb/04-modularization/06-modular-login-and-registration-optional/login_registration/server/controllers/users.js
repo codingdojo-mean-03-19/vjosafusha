@@ -3,9 +3,9 @@ var User = require('../models/user')
 
 module.exports = {
     index: function (req, res) {
-        //   if (req.session.userid) {
-        //     return res.redirect("/secrets");
-        //   }
+        if (req.session.userid) {
+            return res.redirect("/secrets");
+        }
         res.render("index");
     },
 
@@ -56,7 +56,8 @@ module.exports = {
     secrets: function (req, res) {
         if (!req.session.userid) {
             res.redirect("/");
-        } else {
+        }
+        else {
             res.render("secrets");
         }
     },

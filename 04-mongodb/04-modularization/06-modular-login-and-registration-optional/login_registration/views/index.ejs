@@ -11,12 +11,12 @@
 
 <body>
   <div class="container">
+    <% if(messages.registration) { %>
     <div class="alert alert-danger">
-      <% if(messages.registration) { %> <% for (var x of
-        messages.registration) { %>
+      <% for (var x of messages.registration) { %>
       <h6><%= x %></h6>
-      <% } %> <% } %>
-    </div>
+
+      <% } %> </div><% } %>
     <form action="/" method="POST" class="form-horizontal" role="form">
       <br />
       <h2>Registration</h2>
