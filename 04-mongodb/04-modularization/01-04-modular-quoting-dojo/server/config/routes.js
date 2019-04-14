@@ -2,6 +2,10 @@ var mongoose = require("mongoose");
 var User = mongoose.model('User');
 
 module.exports = function (app) {
+    app.get('/', function (req, res) {
+        res.render('index');
+    });
+
     app.post('/quotes', function (req, res) {
         console.log('POST DATA', req.body);
         var user = new User({ name: req.body.name, quote: req.body.quote });

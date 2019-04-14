@@ -1,20 +1,17 @@
-var express = require('express');
-var app = express();
-var bodyParser = require('body-parser');
-var path = require('path');
-var session = require('express-session');
-
-const port = 8000;
+var express = require('express'),
+  app = express(),
+  bodyParser = require('body-parser'),
+  path = require('path'),
+  session = require('express-session'),
+  port = 8000,
+  mongoose = require('mongoose'),
+  flash = require('express-flash');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, './static')));
 app.set('views', path.join(__dirname, './views'));
 app.set('view engine', 'ejs');
-
-var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/quoting_user');
-mongoose.Promise = global.Promise;
-
+app.use(flash());
 app.use(
   session({
     secret: 'abcdefghijklmnop',
@@ -24,12 +21,8 @@ app.use(
   })
 );
 
-const flash = require('express-flash');
-app.use(flash());
-
-app.get('/', function(req, res) {
-  res.render('index');
-});
+mongoose.connect('mongodb://localhost/quoting_user');
+mongoose.Promise = global.Promise;
 
 var UserSchema = new mongoose.Schema(
   {
@@ -41,6 +34,6 @@ var UserSchema = new mongoose.Schema(
 
 mongoose.model('User', UserSchema);
 
-var routes =require('./server/config/routes.js')(app);
+var routes = require('./server/config/routes.js')(app);
 
 app.listen(port, () => console.log(`Server listening on port ${port}!`));
