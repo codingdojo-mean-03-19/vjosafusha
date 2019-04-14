@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      rel="stylesheet"
+      id="bootstrap-css"
+    />
+    <title>Document</title>
+  </head>
+  <body class="container">
+    <h1>Hi, add your favorite Sloth!</h1>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Age</th>
+          <th>Atributes</th>
+        </tr>
+      </thead>
+
+      <% sloths.forEach(function(sloth) {%>
+      <tbody>
+        <tr>
+          <td><%= sloth.name %></td>
+          <td><%= sloth.desc %></td>
+          <td><%= sloth.age %></td>
+          <td>
+            <a href="/mongooses/<%= sloth._id %>" class="btn btn-primary "
+              >Show</a
+            >
+            <a href="/mongooses/edit/<%= sloth._id%>" class="btn btn-primary "
+              >Edit</a
+            >
+            <a href="/delete/<%= sloth._id %>" class="btn btn-primary "
+              >Delete</a
+            >
+          </td>
+        </tr>
+      </tbody>
+      <% }); %>
+    </table>
+
+    <a href="/new" class="btn btn-primary col-sm-3 text-center"
+      >Add a new Sloth!</a
+    >
+  </body>
+</html>
