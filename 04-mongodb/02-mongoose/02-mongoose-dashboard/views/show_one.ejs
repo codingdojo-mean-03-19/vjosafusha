@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link
-      href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-      rel="stylesheet"
-      id="bootstrap-css"
-    />
-    <title>Show One</title>
-  </head>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css" />
+  <title>Show One</title>
+</head>
+
+<body>
+
   <body>
-    <body>
-      <div class="container">
-        <h1>What we know about <%= sloth.name %>!</h1>
+    <div class="container">
+      <h1>What we know about <%= sloth.name %>!</h1>
+      <div class="alert alert-info">
         <h4>Name: <%= sloth.name %></h4>
         <h4>Description: <%= sloth.desc %></h4>
         <h4>Age: <%= sloth.age%></h4>
-        <a href="/" class="btn btn-primary">Go Back</a>
       </div>
-    </body>
+      <a href="/" class="btn btn-primary">Go Back</a>
+    </div>
   </body>
+</body>
+
 </html>
