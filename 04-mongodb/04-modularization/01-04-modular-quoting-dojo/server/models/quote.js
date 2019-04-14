@@ -1,5 +1,4 @@
-var mongoose = require('mongoose')
-mongoose.connect('mongodb://localhost/quoting_user');
+var mongoose = require('../config/mongoose')
 
 var UserSchema = new mongoose.Schema(
     {
