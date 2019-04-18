@@ -2,7 +2,7 @@ var tasks = require("../controllers/tasks")
 
 module.exports = function (app) {
     // GET: Retrieve all Tasks
-    app.get("/", function (req, res) {
+    app.get("/tasks", function (req, res) {
         tasks.index(req, res);
     });
 

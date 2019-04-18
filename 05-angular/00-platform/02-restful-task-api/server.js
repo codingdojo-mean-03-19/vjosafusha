@@ -4,7 +4,7 @@ var express = require('express'),
     port = 8000;
 
 app.use(bodyParser.json());
-app.use(express.static( __dirname + '/angular-app/dist/angular-app' ));
+app.use(express.static(__dirname + '/angular-app/dist/angular-app'));
 
 var routes = require('./server/config/routes')(app);
 
