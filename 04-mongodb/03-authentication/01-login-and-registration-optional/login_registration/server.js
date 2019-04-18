@@ -52,14 +52,14 @@ mongoose.model("User", UserSchema);
 mongoose.Promise = global.Promise;
 var User = mongoose.model("User");
 
-app.get("/", function(req, res) {
-//   if (req.session.userid) {
-//     return res.redirect("/secrets");
-//   }
+app.get("/", function (req, res) {
+  if (req.session.userid) {
+    return res.redirect("/secrets");
+  }
   res.render("index");
 });
 
-app.post("/", function(req, res) {
+app.post("/", function (req, res) {
   var salt = bcrypt.genSaltSync(10);
   var hash = bcrypt.hashSync(req.body.password, salt);
 
@@ -71,7 +71,7 @@ app.post("/", function(req, res) {
     birthday: req.body.birthday
   });
 
-  user.save(function(err) {
+  user.save(function (err) {
     if (err) {
       console.log("We have an error!", err);
       for (var key in err.errors) {
@@ -86,8 +86,8 @@ app.post("/", function(req, res) {
 });
 
 
-app.post("/session", function(req, res) {
-  User.findOne({ email: req.body.email }, function(err, user) {
+app.post("/session", function (req, res) {
+  User.findOne({ email: req.body.email }, function (err, user) {
     if (err) {
       return render.json("Fields are empty");
     }
@@ -103,12 +103,12 @@ app.post("/session", function(req, res) {
     res.redirect("/");
   });
 });
-app.get("/logout", function(req, res) {
+app.get("/logout", function (req, res) {
   req.session.destroy();
   res.redirect("/");
 });
 
-app.get("/secrets", function(req, res) {
+app.get("/secrets", function (req, res) {
   if (!req.session.userid) {
     res.redirect("/");
   } else {
