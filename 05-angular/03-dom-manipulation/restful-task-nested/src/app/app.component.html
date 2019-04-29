@@ -1,0 +1,20 @@
+<div class="container">
+  <h1 style="margin: 0 auto">Restful Tasks API</h1>
+  <button (click)="getTasksFromService()" class="task-button">
+    Get All Tasks
+  </button>
+  <table *ngIf="tasks.length > 0">
+    <tr>
+      <th>Task</th>
+      <th>Actions</th>
+    </tr>
+    <tr *ngFor="let task of tasks">
+      <td>{{ task.title }}</td>
+      <td>
+        <button class="show-button" (click)="showOne(task._id)">Show</button>
+      </td>
+    </tr>
+  </table>
+
+  <app-task [task]="selectedTask"></app-task>
+</div>
