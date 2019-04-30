@@ -6,14 +6,6 @@ import 'rxjs';
   providedIn: 'root',
 })
 export class WeatherService {
-  // constructor(private _http: HttpClient) {}
-
-  // getWeather(city: string) {
-  //   return this._http.get(
-  //     `http://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=`
-  //   );
-  // }
-
   cities = {
     sanjose: 5392171,
     seattle: 5809844,
