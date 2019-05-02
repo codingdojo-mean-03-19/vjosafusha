@@ -1,0 +1,20 @@
+<div>
+  <h1>Welcome to Author's App!</h1>
+  <table>
+    <tr>
+      <th>Author</th>
+      <th>Future Action</th>
+    </tr>
+    <tr *ngFor="let item of authors">
+      <td>{{ item.name }}</td>
+      <td>
+        <button [routerLink]="['/edit']"><span>Edit</span></button>
+        <button><span>Delete</span></button>
+      </td>
+    </tr>
+  </table>
+
+  <button class="add-button" [routerLink]="['/add']">
+    <span> Add a new Author</span>
+  </button>
+</div>
