@@ -9,7 +9,7 @@ import { HomeComponent } from './author/home/home.component';
 import { routing } from './routes/author-routes';
 import { AddComponent } from './author/add/add.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { EditComponent } from './edit/edit.component';
+import { EditComponent } from './author/edit/edit.component';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, AddComponent, EditComponent],

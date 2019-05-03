@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { Author } from '../model';
-import { AuthorService } from '../service/author.service';
+import { Author } from '../../model';
+import { AuthorService } from '../../service/author.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
