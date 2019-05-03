@@ -1,7 +1,9 @@
 const parser = require('body-parser');
+const mongoose = require('mongoose');
 const express = require('express');
 const path = require('path');
 const app = express();
+const authorRoutes = require('./server/routes/author.routes');
 
 app
   .use(express.static(path.join(__dirname, 'dist/public')))
@@ -13,6 +15,6 @@ const {
 } = process;
 
 require('./server/config/mongoose');
-app.use(require('./server/routes/author.routes'));
+app.use('/', authorRoutes);
 
 app.listen(port, () => console.log(`Express server listening on port ${port}`));

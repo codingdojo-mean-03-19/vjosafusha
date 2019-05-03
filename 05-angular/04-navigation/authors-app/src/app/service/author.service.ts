@@ -13,8 +13,16 @@ export class AuthorService {
     return this.http.get<Author[]>('/tasks');
   }
 
-  editAuthor(id: String, editAuthor): Observable<Author> {
-    return this.http.put<Author>(`/${id}`, editAuthor);
+  getAuthorByID(id: string): Observable<Author> {
+    return this.http.get<Author>(`/${id}`);
+  }
+
+  createAuthor(author: Author): Observable<Author> {
+    return this.http.post<Author>('/', author);
+  }
+
+  editAuthor(editAuthor: Author): Observable<Author> {
+    return this.http.put<Author>(`/${editAuthor._id}`, editAuthor);
   }
 
   deleteAuthor(id: String): Observable<Author> {

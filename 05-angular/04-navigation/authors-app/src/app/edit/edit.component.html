@@ -1,0 +1,16 @@
+<div *ngIf="author">
+  <h1>Edit Author</h1>
+  <form [formGroup]="authorForm" (ngSubmit)="onSubmit(authorForm.value)">
+    <input type="text" hidden id="_id" formControlName="_id" name="_id" />
+    <label for="name">First Name</label>
+    <input type="text" id="name" formControlName="name" name="name" />
+    <div>
+      <button type="submit">
+        <span>Save</span>
+      </button>
+      <button [routerLink]="['/']">
+        <span>Cancel</span>
+      </button>
+    </div>
+  </form>
+</div>

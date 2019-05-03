@@ -7,13 +7,19 @@ import { AuthorService } from './service/author.service';
 import { HomeComponent } from './author/home/home.component';
 
 import { routing } from './routes/author-routes';
-import { NewComponent } from './author/new/new.component';
 import { AddComponent } from './author/add/add.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EditComponent } from './edit/edit.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, NewComponent, AddComponent],
-  imports: [BrowserModule, HttpClientModule, routing, FormsModule],
+  declarations: [AppComponent, HomeComponent, AddComponent, EditComponent],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    routing,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
   providers: [AuthorService],
   bootstrap: [AppComponent],
 })

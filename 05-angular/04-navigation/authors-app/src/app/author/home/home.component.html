@@ -8,8 +8,10 @@
     <tr *ngFor="let item of authors">
       <td>{{ item.name }}</td>
       <td>
-        <button [routerLink]="['/edit']"><span>Edit</span></button>
-        <button><span>Delete</span></button>
+        <button [routerLink]="['/edit/', item._id]"><span>Edit</span></button>
+        <button (click)="onDelete(item._id)">
+          <span>Delete</span>
+        </button>
       </td>
     </tr>
   </table>

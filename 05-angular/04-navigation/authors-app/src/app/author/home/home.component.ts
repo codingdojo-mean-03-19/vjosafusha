@@ -8,6 +8,8 @@ import { Author } from '../../model';
 })
 export class HomeComponent implements OnInit {
   authors: Author[];
+  author = Author;
+  id: String;
 
   constructor(private authorService: AuthorService) {}
 
@@ -15,10 +17,6 @@ export class HomeComponent implements OnInit {
     this.getAuthors();
   }
   getAuthors() {
-    // this.authorService.getAuthors().subscribe(authors => {
-    //   this.authors = authors['authors'];
-    //   console.log(authors);
-    // });
     this.authorService.getAuthors().subscribe(
       (response: Author[]) => {
         this.authors = response;
@@ -30,14 +28,10 @@ export class HomeComponent implements OnInit {
     );
   }
 
-  // onDelete(event: Event, author: Author) {
-  //   event.stopPropagation();
-  //   console.log('Author id', author._id);
-  //   this.authorService.deleteAuthor(author._id).subscribe(removedAuthor => {
-  //     console.log('deleted author', removedAuthor);
-  //     this.authors = this.authors.filter(
-  //       // tslint:disable-next-line: no-shadowed-variable
-  //       author => author._id !== removedAuthor._id
-  //     );
-  //   });
+  onDelete(id: String) {
+    this.authorService.deleteAuthor(id).subscribe((response: Author) => {
+      console.log('Removing a author', response);
+      this.getAuthors();
+    });
+  }
 }

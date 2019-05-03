@@ -12,3 +12,18 @@ const AuthorSchema = new Schema(
 );
 
 module.exports = mongoose.model('Author', AuthorSchema);
+
+// const Author = mongoose.model(
+//   'Author',
+//   new Schema(
+//     {
+//       name: {
+//         type: String,
+//         minlength: [3, 'More than 3 characters needed'],
+//       },
+//     },
+//     { timestamps: true }
+//   )
+// );
+
+// exports.Author = Author;

@@ -30,7 +30,7 @@ module.exports = {
 
   update(req, res) {
     const { id: AuthorID } = req.params;
-    Author.findByIdAndUpdate(AuthorID)
+    Author.findByIdAndUpdate(AuthorID, { name: req.body.name })
       .then(author => res.json(author))
       .catch(error => {
         const errors = Object.keys(error.errors).map(
