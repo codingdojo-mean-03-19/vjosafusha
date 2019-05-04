@@ -1,0 +1,19 @@
+.container {
+  font-family: monospace;
+  width: 900px;
+  height: 600px;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: #fffef7;
+}
+ul li {
+  margin: 7px;
+  font-size: 15px;
+  font-weight: bold;
+  list-style: none;
+  display: inline-block;
+}
+
+h1 {
+  text-align: center;
+}
