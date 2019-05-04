@@ -8,10 +8,5 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ProductsComponent implements OnInit {
   constructor(private route: ActivatedRoute) {}
-  ngOnInit() {
-    // note the use of .parent
-    this.route.parent.params.subscribe(params =>
-      console.log(`The parent params: ${params}`)
-    );
-  }
+  ngOnInit() {}
 }
