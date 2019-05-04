@@ -1,0 +1,7 @@
+div {
+  margin: 0px auto;
+  border: 5px solid purple;
+  border-radius: 50px;
+  width: 70%;
+  height: 500px;
+}
