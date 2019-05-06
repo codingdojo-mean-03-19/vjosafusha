@@ -1,3 +1,19 @@
-<p>
-  product-list works!
-</p>
+<div *ngIf="products">
+  <div class="box" *ngFor="let product of products">
+    <img src="{{ product.img }}" alt="Image of {{ product.title }}" />
+    <h3>{{ product.title }}</h3>
+    <h4>${{ product.price }}</h4>
+    <ul>
+      <li>
+        <a [routerLink]="['/products', 'edit', product._id]">
+          Edit
+        </a>
+      </li>
+      <li>
+        <a (click)="onDelete(product._id)">
+          <span>Delete</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

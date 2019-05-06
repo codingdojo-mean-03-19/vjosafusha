@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { ProductService } from './services/product.service';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { ProductComponent } from './product/product.component';
@@ -23,7 +23,13 @@ import { AppRoutingModule } from './app-routes.module';
     ProductAddComponent,
     HomeComponent,
   ],
-  imports: [BrowserModule, FormsModule, HttpClientModule, AppRoutingModule],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    AppRoutingModule,
+  ],
   providers: [ProductService],
   bootstrap: [AppComponent],
 })

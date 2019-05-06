@@ -4,10 +4,10 @@
     <h1>Welcome to {{ title }}!</h1>
     <ul>
       <li><a [routerLink]="['home']">Home</a></li>
-      <li><a [routerLink]="['products']">Product List</a></li>
-      <li><a [routerLink]="['products/add']">Add a new product</a></li>
+      <li><a [routerLink]="['products']">List</a></li>
+      <li><a [routerLink]="['products/add']">Add</a></li>
     </ul>
-    <div style="border:1pt silver solid;">
+    <div class="components">
       <router-outlet></router-outlet>
     </div>
   </div>

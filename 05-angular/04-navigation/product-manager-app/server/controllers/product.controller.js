@@ -26,7 +26,11 @@ module.exports = {
   },
   update(req, res) {
     const { product_id: ProductId } = req.params;
-    Product.findByIdAndUpdate(ProductId)
+    Product.findByIdAndUpdate(ProductId, {
+      title: req.body.title,
+      price: req.body.price,
+      img: req.body.img,
+    })
       .then(product => res.json(product))
       .catch(error => {
         const errors = Object.keys(error.errors).map(

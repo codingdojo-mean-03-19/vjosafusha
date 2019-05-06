@@ -1,3 +1,19 @@
-<p>
-  product-add works!
-</p>
+<div>
+  <h1>Add Product</h1>
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit(productForm.value)">
+    <label for="name"><h3>Title</h3></label>
+    <input type="text" id="title" formControlName="title" name="title" />
+    <label for="name"><h3>Price</h3></label>
+    <input type="number" id="price" formControlName="price" name="price" />
+    <label for="name"><h3>Image Url</h3></label>
+    <input type="text" id="img" formControlName="img" name="img" />
+    <div>
+      <button type="submit">
+        <span>Add</span>
+      </button>
+      <button [routerLink]="['/products']">
+        <span>Cancel</span>
+      </button>
+    </div>
+  </form>
+</div>
