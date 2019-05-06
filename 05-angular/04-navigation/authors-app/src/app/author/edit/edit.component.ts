@@ -37,6 +37,7 @@ export class EditComponent implements OnInit {
     });
   }
   onSubmit(data) {
+    console.log(data);
     this.author = data;
     console.log(this.author);
     this.authorService.editAuthor(this.author).subscribe(response => {
