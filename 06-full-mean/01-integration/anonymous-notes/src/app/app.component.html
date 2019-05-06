@@ -1,0 +1,27 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="ng-container" style="text-align:center; font-family: monospace">
+  <h1>Welcome to {{ title }}!</h1>
+
+  <div>
+    <form [formGroup]="noteForm" (ngSubmit)="onSubmit(noteForm.value)">
+      <input
+        type="text"
+        placeholder="Add a note"
+        formControlName="note"
+        name="note"
+      />
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <ul class="list">
+    <cdk-virtual-scroll-viewport style="height: 500px" itemSize="90">
+      <ng-container *cdkVirtualFor="let n of notes">
+        <li>
+          <div class="left">{{ n.note }}</div>
+          <span>Noted on: {{ n.createdAt | date: 'dd-MMM-yyyy hh:mm a' }}</span>
+        </li>
+      </ng-container>
+    </cdk-virtual-scroll-viewport>
+  </ul>
+</div>
