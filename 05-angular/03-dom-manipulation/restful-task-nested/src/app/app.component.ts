@@ -8,7 +8,7 @@ import { Task } from './models';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'There are your tasks:';
+  title = 'Here are your tasks:';
   tasks: Task[] = [];
   selectedTask: Task;
 
