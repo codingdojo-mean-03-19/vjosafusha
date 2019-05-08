@@ -1,0 +1,24 @@
+<h1>Add a new Player</h1>
+<!--  ormControlName="position"    -->
+<form [formGroup]="playerForm" (ngSubmit)="onSubmit(playerForm.value)">
+  <label for="name">Name</label>
+  <input type="text" id="name" formControlName="name" name="name" required />
+  <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert">
+    <div *ngIf="name.errors.required">
+      Name is required.
+    </div>
+    <div *ngIf="name.errors.minlength">
+      Name must be at least 3 long.
+    </div>
+  </div>
+  <label for="name">Position</label>
+  <input type="text" id="name" formControlName="position" fname="name" />
+  <div>
+    <button type="submit">
+      <span>Add</span>
+    </button>
+    <button [routerLink]="['list']">
+      <span>Cancel</span>
+    </button>
+  </div>
+</form>
