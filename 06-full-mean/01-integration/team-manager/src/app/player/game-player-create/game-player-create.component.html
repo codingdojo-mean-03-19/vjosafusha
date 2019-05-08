@@ -1,0 +1,24 @@
+<h1>Assign</h1>
+<!--  ormControlName="position"    -->
+<form [formGroup]="gamePlayerForm" (ngSubmit)="onSubmit(gamePlayerForm.value)">
+  <label for="name">Player</label>
+  <select name="player" formControlName="player" id="player">
+    <option value="{{ item._id }}" *ngFor="let item of players">{{
+      item.name
+    }}</option>
+  </select>
+  <label for="name">Games</label>
+  <select class="custom-select" name="games" formControlName="game" id="games">
+    <option value="{{ item._id }}" *ngFor="let item of games">{{
+      item.name
+    }}</option>
+  </select>
+  <div>
+    <button type="submit">
+      <span>Add</span>
+    </button>
+    <button [routerLink]="['list']">
+      <span>Cancel</span>
+    </button>
+  </div>
+</form>

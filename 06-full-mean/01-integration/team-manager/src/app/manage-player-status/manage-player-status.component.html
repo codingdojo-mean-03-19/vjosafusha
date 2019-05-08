@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="games-buttons">
+    <button *ngFor="let item of games" (click)="getPlayerGames(item._id)">
+      {{ item.name }}
+    </button>
+  </div>
+
+  <div>
+    <table>
+      <tr>
+        <th>Team Player</th>
+        <th>Status</th>
+        <th>Future Action</th>
+      </tr>
+      <tr *ngFor="let item of gamePlayers">
+        <td>{{ item.player.name }}</td>
+        <td>{{ item.status }}</td>
+        <td>
+          <button
+            (click)="changeStatus(item._id, item.game._id, 'Playing')"
+            [ngClass]="item.status == 'Playing' ? 'green-button' : 'plain'"
+          >
+            Playing
+          </button>
+          <button
+            (click)="changeStatus(item._id, item.game._id, 'Not Playing')"
+            [ngClass]="item.status == 'Not Playing' ? 'red-button' : 'plain'"
+          >
+            Not Playing
+          </button>
+          <button
+            (click)="changeStatus(item._id, item.game._id, 'Undecided')"
+            [ngClass]="item.status == 'Undecided' ? 'yellow-button' : 'plain'"
+          >
+            Undecided
+          </button>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

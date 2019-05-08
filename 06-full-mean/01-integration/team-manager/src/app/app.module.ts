@@ -8,7 +8,8 @@ import { PlayerComponent } from './player/player.component';
 import { PlayerListComponent } from './player/player-list/player-list.component';
 import { PlayerAddComponent } from './player/player-add/player-add.component';
 import { AppRoutingModule } from './app-routes.module';
-import { PlayerGameComponent } from './player-game/player-game.component';
+import { GamePlayerCreateComponent } from './player/game-player-create/game-player-create.component';
+import { ManagePlayerStatusComponent } from './manage-player-status/manage-player-status.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { PlayerGameComponent } from './player-game/player-game.component';
     PlayerComponent,
     PlayerListComponent,
     PlayerAddComponent,
-    PlayerGameComponent,
+    GamePlayerCreateComponent,
+    ManagePlayerStatusComponent,
   ],
   imports: [
     BrowserModule,

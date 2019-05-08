@@ -14,12 +14,6 @@ const PlayerSchema = new Schema(
       type: String,
       trim: true,
     },
-
-    status: {
-      type: String,
-      trim: true,
-      default: 'Undecided',
-    },
   },
   {
     timestamps: true,

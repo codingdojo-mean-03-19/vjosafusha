@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Player } from '../models';
+import { Player } from '../models/player';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -14,18 +14,18 @@ export class PlayerService {
   }
 
   getPlayerByID(id: string): Observable<Player> {
-    return this.http.get<Player>(`/${id}`);
+    return this.http.get<Player>(`/players/${id}`);
   }
 
   createPlayer(player: Player): Observable<Player> {
-    return this.http.post<Player>('/', player);
+    return this.http.post<Player>('/players', player);
   }
 
   editPlayer(editPlayer: Player): Observable<Player> {
-    return this.http.put<Player>(`/${editPlayer._id}`, editPlayer);
+    return this.http.put<Player>(`/players/${editPlayer._id}`, editPlayer);
   }
 
   deletePlayer(id: string): Observable<Player> {
-    return this.http.delete<Player>(`/${id}`);
+    return this.http.delete<Player>(`/players/${id}`);
   }
 }

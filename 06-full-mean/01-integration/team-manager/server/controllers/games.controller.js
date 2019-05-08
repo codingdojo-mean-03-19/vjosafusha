@@ -1,22 +1,22 @@
-const Player = require('mongoose').model('Player');
+const Game = require('mongoose').model('Game');
 const { Http } = require('@status/codes');
 
 module.exports = {
   index(_req, res) {
-    Player.find({})
-      .then(players => res.json(players))
+    Game.find({})
+      .then(games => res.json(games))
       .catch(error => res.status(Http.InternalServerError).json(error));
   },
 
   show(req, res) {
-    const { player_id: PlayerId } = req.params;
-    Player.findById(PlayerId)
-      .then(player => res.json(player))
+    const { game_id: GameId } = req.params;
+    Game.findById(GameId)
+      .then(game => res.json(game))
       .catch(error => res.status(Http.NoContent).json(error));
   },
   create(req, res) {
-    Player.create(req.body)
-      .then(player => res.json(player))
+    Game.create(req.body)
+      .then(game => res.json(game))
       .catch(error => {
         const errors = Object.keys(error.errors).map(
           key => error.errors[key].message
@@ -25,10 +25,9 @@ module.exports = {
       });
   },
   update(req, res) {
-    const { player_id: PlayerId } = req.params;
-    Player.findByIdAndUpdate(PlayerId, {
+    const { game_id: GameId } = req.params;
+    Game.findByIdAndUpdate(GameId, {
       name: req.body.name,
-      position: req.body.position,
     })
       .then(product => res.json(product))
       .catch(error => {
@@ -39,9 +38,9 @@ module.exports = {
       });
   },
   destroy(req, res) {
-    const { player_id: PlayerId } = req.params;
-    Player.findByIdAndRemove(PlayerId)
-      .then(player => res.json(player))
+    const { game_id: GameId } = req.params;
+    Game.findByIdAndRemove(GameId)
+      .then(game => res.json(game))
       .catch(error => res.status(Http.UpgradeRequired).json(error));
   },
 };

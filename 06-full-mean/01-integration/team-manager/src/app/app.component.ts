@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { PlayerService } from './services/player.service';
-import { Player } from './models';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
