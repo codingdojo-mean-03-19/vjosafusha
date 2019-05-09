@@ -13,6 +13,7 @@ export class ManagePlayerStatusComponent implements OnInit {
   games: Game[];
   gamePlayers: any;
   gamePlayer: GamePlayer;
+  id: string;
 
   constructor(
     private readonly gameService: GameService,
@@ -21,7 +22,7 @@ export class ManagePlayerStatusComponent implements OnInit {
 
   ngOnInit() {
     this.getGames();
-    this.getPlayerGames('5cd33e5d4c3dd04f786a80ae');
+    this.getPlayerGames('5cd41b43fa2df059f0a5afd0');
   }
 
   getGames() {

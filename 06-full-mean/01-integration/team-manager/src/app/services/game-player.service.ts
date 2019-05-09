@@ -31,4 +31,8 @@ export class GamePlayerService {
   getGamePlayersByID(id: string): Observable<any> {
     return this.http.get(`/gamePlayers/${id}/players`);
   }
+
+  getGamePlayersByPlayerId(id: string): Observable<any> {
+    return this.http.get(`/gamePlayers/${id}/games`);
+  }
 }

@@ -42,7 +42,7 @@ module.exports = {
       });
   },
   destroy(req, res) {
-    const { player_id: GamePlayerId } = req.params;
+    const { gamePlayer_id: GamePlayerId } = req.params;
     GamePlayer.findByIdAndRemove(GamePlayerId)
       .then(gamePlayer => res.json(gamePlayer))
       .catch(error => res.status(Http.UpgradeRequired).json(error));
@@ -55,6 +55,13 @@ module.exports = {
       .populate('player')
       .populate('game')
       .then(gamePlayers => res.json(gamePlayers))
+      .catch(error => res.status(Http.InternalServerError).json(error));
+  },
+
+  getGamePlayerByPlayerId(req, res) {
+    const player_id = req.params.player_id;
+    GamePlayer.find({ player: player_id })
+      .then(gamePlayer => res.json(gamePlayer))
       .catch(error => res.status(Http.InternalServerError).json(error));
   },
 };

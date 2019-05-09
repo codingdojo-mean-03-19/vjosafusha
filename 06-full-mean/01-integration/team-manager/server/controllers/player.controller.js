@@ -1,6 +1,6 @@
 const Player = require('mongoose').model('Player');
 const { Http } = require('@status/codes');
-
+const GamePlayer = require('./game-player.controller');
 module.exports = {
   index(_req, res) {
     Player.find({})
@@ -38,9 +38,10 @@ module.exports = {
         res.status(Http.UnprocessableEntity).json(errors);
       });
   },
+
   destroy(req, res) {
-    const { player_id: PlayerId } = req.params;
-    Player.findByIdAndRemove(PlayerId)
+    const player_id = req.params.player_id;
+    Player.findByIdAndRemove(player_id)
       .then(player => res.json(player))
       .catch(error => res.status(Http.UpgradeRequired).json(error));
   },

@@ -4,7 +4,7 @@ const fs = require('fs');
 
 const mondelsPath = path.resolve('server', 'models');
 
-mongoose.connect('mongodb://localhost/team-manager-db', {
+mongoose.connect('mongodb://localhost/team-manager-app-db', {
   useCreateIndex: true,
   useNewUrlParser: true,
 });

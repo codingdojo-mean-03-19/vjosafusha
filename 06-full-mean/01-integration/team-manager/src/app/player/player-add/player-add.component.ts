@@ -38,7 +38,6 @@ export class PlayerAddComponent implements OnInit {
       return;
     } else {
       this.player = data;
-      console.log(this.player);
       this.playerService.createPlayer(this.player).subscribe(response => {
         this.router.navigate(['players/list']);
       });

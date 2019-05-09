@@ -10,4 +10,8 @@ module.exports = router
   .get(
     '/gamePlayers/:game_id/players',
     GamePlayerController.getGamePlayerByGameId
+  )
+  .get(
+    '/gamePlayers/:player_id/games',
+    GamePlayerController.getGamePlayerByPlayerId
   );
